@@ -1,18 +1,10 @@
-// Import express
 const express = require("express");
+const serverless = require("serverless-http");
 
-// Inisialisasi aplikasi Express
 const app = express();
 
-// Tentukan port tempat server akan berjalan
-const PORT = 3000;
-
-// Route utama
 app.get("/", (req, res) => {
-  res.send("Welcome to Express.js");
+  res.send("Welcome to Express.js on Netlify!");
 });
 
-// Jalankan server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+module.exports.handler = serverless(app);
